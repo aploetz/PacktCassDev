@@ -13,9 +13,9 @@ public class CassSecurityDataLoader {
     private final static int maxThreads = 10;
     
 	public static void main(String[] args) {
-		String[] nodes = {"192.168.0.101"};
+		String[] nodes = {"127.0.0.1"};
 		CassandraConnection conn = new CassandraConnection(nodes, "cassdba", "flynnLives", 
-		  "ClockworkAngels");
+		  "datacenter1");
 		
 		//define thread structures
 		List<ResultSetFuture> listenableFutures = new ArrayList<ResultSetFuture>();
@@ -47,11 +47,11 @@ public class CassSecurityDataLoader {
 	      }
 		}
 
-		//wait for remaining insert threads to complete
-		listenableFutures.forEach(ResultSetFuture::getUninterruptibly);
-		
-		System.out.println("Loader complete!");
-		
-		conn.close();
+            //wait for remaining insert threads to complete
+            listenableFutures.forEach(ResultSetFuture::getUninterruptibly);
+
+            System.out.println("Loader complete!");
+
+            conn.close();
 	}
 }

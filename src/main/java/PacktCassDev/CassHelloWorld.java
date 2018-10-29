@@ -6,9 +6,9 @@ import com.datastax.driver.core.Row;
 public class CassHelloWorld {
 
   public static void main(String[] args) {
-	String[] nodes = {"192.168.0.101"};
+	String[] nodes = {"127.0.0.1"};
 	CassandraConnection conn = new CassandraConnection(nodes, "cassdba", "flynnLives", 
-	  "ClockworkAngels");
+	  "datacenter1");
 
     String strSELECT ="SELECT cluster_name,data_center,"
       + "listen_address,release_version,dateof(now()) "

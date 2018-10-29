@@ -36,24 +36,6 @@ public class CassandraConnection {
 	      .build();
 	    session = cluster.connect();
 	}
-
-	public void connectAsync(String[] nodes, String user, String pwd, String dc) {
-		  QueryOptions qo = new QueryOptions();
-		  qo.setConsistencyLevel(ConsistencyLevel.LOCAL_ONE);
-
-		  cluster = Cluster.builder()
-		    .addContactPoints(nodes)
-		    .withCredentials(user,pwd)
-		    .withQueryOptions(qo)
-		    .withLoadBalancingPolicy(
-		      new TokenAwarePolicy(
-		        DCAwareRoundRobinPolicy.builder()
-		        .withLocalDc(dc)
-		        .build()
-		      ))
-		      .build();
-		    session = cluster.newSession();
-		}
 	
 	public ResultSet query(String strQuery) {
 	  return session.execute(strQuery);

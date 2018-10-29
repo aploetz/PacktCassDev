@@ -5,9 +5,9 @@ import com.datastax.driver.mapping.Result;
 public class CassSecurityLogMapper {
 
 	public static void main(String[] args) {
-		String[] nodes = {"192.168.0.101"};
+		String[] nodes = {"127.0.0.1"};
 		CassandraConnection conn = new CassandraConnection(nodes, "cassdba", "flynnLives", 
-		  "ClockworkAngels");
+		  "datacenter1");
 
 		SecurityLogService securityLogSvc = new SecurityLogService(conn.getSession());
 		
