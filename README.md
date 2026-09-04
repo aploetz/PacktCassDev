@@ -1,4 +1,4 @@
-# PackeCass Dev
+# PacktCass Dev
 Code exercises for Mastering Apache Cassandra 3.x (2018 Packt Publishing).
 
 ## The Java code requires a running Cassandra cluster, with the following definition:
